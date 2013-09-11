@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>typeSystemDescriptor</name>
+  <description/>
+  <version>1.0</version>
+  <vendor/>
+  <types>
+    <typeDescription>
+      <name>Model.Base</name>
+      <description>A base annotation to help keep track of where an annotation was originally made by, and how confidence the annotation was.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>Sentence</name>
+          <description>A string which tell us the original senctence where the annotation come from. </description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>Confidence</name>
+          <description>Indicating how confident the annotation is</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.Document</name>
+      <description>An annotation which contains the whole input file. </description>
+      <supertypeName>uima.tcas.DocumentAnnotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.Answer</name>
+      <description>A annotation that contains all the "answers" from the input file and has an index telling whether the answer is correct.
+It is inherited from Model.Base.</description>
+      <supertypeName>Model.Base</supertypeName>
+      <features>
+        <featureDescription>
+          <name>IsCorrect</name>
+          <description>A feature telling whether the answer is correct</description>
+          <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.Question</name>
+      <description>An annotation inherited from Model.Base. It contains the "question"  of the input file. </description>
+      <supertypeName>Model.Base</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.Token</name>
+      <description>Results of token analysis.</description>
+      <supertypeName>Model.Base</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.AnswerScore</name>
+      <description>Inherited from Model.Answer. It also has a numeric feature of score, indicating how good the answer is. </description>
+      <supertypeName>Model.Answer</supertypeName>
+      <features>
+        <featureDescription>
+          <name>Score</name>
+          <description>Indicating how good an answer is.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.NGram</name>
+      <description>Results of NGram analysis.</description>
+      <supertypeName>Model.Base</supertypeName>
+      <features>
+        <featureDescription>
+          <name>Elements</name>
+          <description>Show all the tokens inside the type.</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>Model.Token</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>Model.Evaluation</name>
+      <description>Evaluate the precision of one method.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>Precision</name>
+          <description>Indicating how precise the method is. </description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>MethodName</name>
+          <description>Telling us which method the evaluation is based on.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
