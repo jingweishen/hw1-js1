@@ -41,7 +41,7 @@
               <goal>perform</goal>
             </goals>
             <configuration>
-              <pomFileName>hw1-test/pom.xml</pomFileName>
+              <pomFileName>hw1-js1/pom.xml</pomFileName>
             </configuration>
           </execution>
         </executions>
